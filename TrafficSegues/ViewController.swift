@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: Properties
-    @IBOutlet weak var textField: UITextField!
+
+    @IBOutlet weak var segueSwitch: UISwitch!
     
     // MARK: Initializer
     
@@ -23,16 +24,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func unwindToRed(unwindSegue: UIStoryboardSegue) {
+   
+    @IBAction func yellowButtonTapped(_ sender: Any) {
+        
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Yellow", sender: nil)
+        }
+        
         
     }
+    
+    @IBAction func greenButtonTapped(_ sender: Any) {
+        
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Green", sender: nil)
 
-    //Get ready to segue to the yellow view controller
-    //Called automatiaclly when a segue is about to happen
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        segue.destination.navigationItem.title = textField.text
-        
+        }
         
     }
 }
